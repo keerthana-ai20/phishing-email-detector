@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Phishing Detector</title>
+</head>
+<body>
+    <h2>Phishing Email Detection System</h2>
+
+    <form action="/predict" method="post">
+        <textarea name="email" rows="6" cols="60" placeholder="Enter email content..."></textarea><br><br>
+        <button type="submit">Analyze Email</button>
+    </form>
+
+    {% if prediction %}
+        <h3>{{ prediction }}</h3>
+    {% endif %}
+
+    <h3>Model Accuracy: {{ accuracy }}%</h3>
+
+    <h3>Classification Report:</h3>
+    <pre>{{ report }}</pre>
+
+    <h3>Confusion Matrix:</h3>
+    <img src="/static/confusion_matrix.png" width="400">
+
+</body>
+</html>
